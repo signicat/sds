@@ -1,0 +1,3 @@
+# Downloading a document
+
+curl -u shared:Bond007 -k -o mydownloadedfile.pdf https://test.signicat.com/doc/shared/sds/21082013yuhu3a80c1kofj1baarn1gozk32hphh9jcy6i5h9a3qk2ca7z

@@ -1,0 +1,12 @@
+# Uploading a text document
+
+# Windows
+curl -u shared:Bond007 -k -d "Test document with ÅÆØ" -H "Content-Type: text/plain;charset=iso8859-1" https://test.signicat.com/doc/shared/sds
+ 
+# OS X/Linux
+curl -u shared:Bond007 -k -d "Test document with ÅÆØ" -H "Content-Type: text/plain;charset=utf8" https://test.signicat.com/doc/shared/sds
+ 
+# Uploading a PDF document
+
+# Windows/OS X/Linux
+curl -u shared:Bond007 -k --data-binary @mydocument.pdf -H "Content-Type: application/pdf" https://test.signicat.com/doc/shared/sds
