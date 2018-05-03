@@ -13,13 +13,13 @@ namespace Signicat.Support.SDS.Test
         [TestMethod]
         public async Task Uploading_a_PDF_document_to_SDS()
         {
-            var httpClientHandler = new HttpClientHandler { Credentials = new NetworkCredential("shared", "Bond007") };
+            var httpClientHandler = new HttpClientHandler { Credentials = new NetworkCredential("demo", "Bond007") };
             using (var client = new HttpClient(httpClientHandler))
             {
                 HttpContent content = new ByteArrayContent(File.ReadAllBytes("mydocument.pdf"));
                 content.Headers.ContentType = new MediaTypeHeaderValue("application/pdf");
                 HttpResponseMessage response =
-                    await client.PostAsync("https://test.signicat.com/doc/shared/sds", content);
+                    await client.PostAsync("https://preprod.signicat.com/doc/demo/sds", content);
 
                 string documentId = await response.Content.ReadAsStringAsync();
 
@@ -31,11 +31,11 @@ namespace Signicat.Support.SDS.Test
         [TestMethod]
         public async Task Downloading_a_PDF_document_from_SDS()
         {
-            var httpClientHandler = new HttpClientHandler { Credentials = new NetworkCredential("shared", "Bond007") };
+            var httpClientHandler = new HttpClientHandler { Credentials = new NetworkCredential("demo", "Bond007") };
             using (var client = new HttpClient(httpClientHandler))
             {
                 HttpResponseMessage response =
-                    await client.GetAsync("https://test.signicat.com/doc/shared/sds/26082013589fl9ppby4c7ltrgyp11kx41bc9mikazp2yhcsk11fgxfgxtd");
+                    await client.GetAsync("https://preprod.signicat.com/doc/demo/sds/26082013589fl9ppby4c7ltrgyp11kx41bc9mikazp2yhcsk11fgxfgxtd");
 
                 byte[] pdf = await response.Content.ReadAsByteArrayAsync();
                 File.WriteAllBytes("mydownloadedfile.pdf", pdf);

@@ -26,12 +26,12 @@ public class JavaPostTest {
 
         // Create the client and set it up for basic authentication
         DefaultHttpClient client = new DefaultHttpClient();
-        AuthScope authScope = new AuthScope("test.signicat.com", 443);
-        Credentials credentials = new UsernamePasswordCredentials("shared", "Bond007");
+        AuthScope authScope = new AuthScope("preprod.signicat.com", 443);
+        Credentials credentials = new UsernamePasswordCredentials("demo", "Bond007");
         client.getCredentialsProvider().setCredentials(authScope, credentials);
 
         // Grab the PDF file and add it to the HttpPost request
-        HttpPost post = new HttpPost("https://test.signicat.com/doc/shared/sds/'");
+        HttpPost post = new HttpPost("https://preprod.signicat.com/doc/demo/sds/'");
         File pdf = new File("src/test/com/signicat/support/sds/mydocument.pdf");
         post.setEntity(new FileEntity(pdf, "application/pdf"));
 
@@ -51,13 +51,13 @@ public class JavaPostTest {
 
         // Create the client and set it up for basic authentication
         DefaultHttpClient client = new DefaultHttpClient();
-        AuthScope authScope = new AuthScope("test.signicat.com", 443);
-        Credentials credentials = new UsernamePasswordCredentials("shared", "Bond007");
+        AuthScope authScope = new AuthScope("preprod.signicat.com", 443);
+        Credentials credentials = new UsernamePasswordCredentials("demo", "Bond007");
         client.getCredentialsProvider().setCredentials(authScope, credentials);
 
         // Construct the URL to the document and add it to the HttpGet request
         String documentId = "260820133q4qadupq43zq7fgajithlyxkso8ux96p4bp20l5h3a1en24k2";
-        String sdsUrl = "https://test.signicat.com/doc/shared/sds/" + documentId;
+        String sdsUrl = "https://preprod.signicat.com/doc/demo/sds/" + documentId;
         HttpGet get = new HttpGet(sdsUrl);
 
         // Execute the request and read+save the document id from the response

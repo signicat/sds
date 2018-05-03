@@ -8,7 +8,7 @@ var request = require('request');
 fs.createReadStream('mydocument.pdf').pipe(
 
 	request.post(
-	    'https://test.signicat.com/doc/shared/sds/',
+	    'https://preprod.signicat.com/doc/demo/sds/',
 	    function (error, response, body) {
 	        if (!error && response.statusCode == 201) {
 	            console.log(body);
@@ -18,7 +18,7 @@ fs.createReadStream('mydocument.pdf').pipe(
 	        }
 	    }
 	).auth(
-		"shared",
+		"demo",
 		"Bond007"
 	)
 
